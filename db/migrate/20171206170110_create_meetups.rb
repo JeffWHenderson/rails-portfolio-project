@@ -4,7 +4,8 @@ class CreateMeetups < ActiveRecord::Migration[5.1]
       t.string :name
       t.string :location
       t.datetime :time
-
+      t.integer :group_id
+      
       t.timestamps
     end
   end

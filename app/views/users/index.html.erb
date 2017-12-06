@@ -3,3 +3,18 @@ id: <%= session[:user]['id'] %><br>
 email: <%= session[:user]['email'] %><br>
 
 uid: <%= session[:user]['uid'] %>
+
+<br><br>USERS <br>
+<% User.all.each do |u| %>
+  <%= u.email %><br>
+<% end %>
+<br><br> <%= UserGroup.all %><br><br>
+GROUPS <br>
+<% Group.all.each do |g| %>
+  <%= g.name %><br>
+  <%= g.description %>
+<% end %>
+<br><br>
+<% Group.last.user_groups.each do |ug| %>
+  <%= User.find(ug.user_id).email %><br>
+<% end %>

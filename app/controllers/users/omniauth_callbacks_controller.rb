@@ -6,6 +6,7 @@ class Users::OmniauthCallbacksController < Devise::OmniauthCallbacksController
 
     if @user.persisted?
       current_user = @user #### I added this but i think it makes sense.
+      session[:user] = @user
       redirect_to root_path
       # sign_in_and_redirect @user, event: :authentication #this will throw if @user is not activated
 

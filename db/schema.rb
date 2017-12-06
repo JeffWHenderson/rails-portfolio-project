@@ -10,11 +10,21 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20171206162635) do
+ActiveRecord::Schema.define(version: 20171206170110) do
 
   create_table "groups", force: :cascade do |t|
     t.string "name"
     t.string "description"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "meetups", force: :cascade do |t|
+    t.string "name"
+    t.string "location"
+    t.string "day"
+    t.string "time"
+    t.integer "group_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end

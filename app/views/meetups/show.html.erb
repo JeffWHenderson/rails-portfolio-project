@@ -1,4 +1,8 @@
-show meetings page!!!! <br>
-
-<%= @group.name %><br>
+<h1><%= @group.name %></h1><br>
 <%= @meetup.name %><br>
+<%= @meetup.location %><br>
+<%= @meetup.time %><br>
+<%= @meetup.day %><br>
+
+<%= link_to "edit", edit_group_meetup_path(@group, @meetup)  %> -
+<%= link_to "delete", group_meetup_path(@group, @meetup), method: :delete, data: { confirm: "You sure?" } %><br>

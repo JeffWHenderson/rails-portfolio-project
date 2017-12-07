@@ -28,13 +28,29 @@ class MeetupsController < ApplicationController
 
   #needs authorizations
   def edit
+    @group = Group.find(params[:group_id])
+    @meetup = @group.meetups.find(params[:id])
   end
 
   def update
+    @meetup = Meetup.find(params[:id])
+    @group = Group.find(params[:group_id])
+    if @meetup.update(meetup_params)
+      flash[:notice] = "Meeting has been updated"
+      redirect_to group_meetup_path(@group, @meetup)
+    else
+      flash[:notice] = "something is wrong yo"
+      redirect_to root_path
+    end
+
   end
   #how can I verify that only the creator of a meetup can delete it????
   # could i look at the First instance of a user_group and verify THAT was the creator?
   def destroy
+    @meetup = Meetup.find(params[:id]) #current_user.groups.find(params[:id])
+    @meetup.destroy
+    flash[:notice] = "Review deleted"
+    redirect_to root_path #user_path(current_user)
   end
 
   private

@@ -16,7 +16,7 @@
             <li>navigation here</li>
       </nav>
     </div>
-
+    <h2><%= flash[:notice] if flash[:notice] %></h2>  
 
     <%= yield %>
   </body>

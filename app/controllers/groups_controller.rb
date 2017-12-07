@@ -19,9 +19,19 @@ class GroupsController < ApplicationController
 
   #needs authorizations
   def edit
+    @group = Group.find(params[:id])
   end
+
   def update
+    @group = Group.find(params[:id])
+    if @group.update(group_params)
+      redirect_to group_path(@group)
+    else
+      flash[:notice] = "something went wrong"
+      redirect_to edit_group_path(@group)
+    end
   end
+
   #how can I verify that only the creator of a group can delete it????
   def destroy
   end

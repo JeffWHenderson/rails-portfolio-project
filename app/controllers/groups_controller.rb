@@ -5,8 +5,16 @@ class GroupsController < ApplicationController
     @group = Group.find(params[:id])
   end
   def new
+    @group = Group.new
   end
   def create
+    @group = Group.new(group_params)
+    if  @group.save
+      redirect_to group_path(@group)
+    else
+      flash[:notice] = "group creation was unsuccessful"
+      redirect_to root_path
+    end
   end
 
   #needs authorizations
@@ -16,6 +24,12 @@ class GroupsController < ApplicationController
   end
   #how can I verify that only the creator of a group can delete it????
   def destroy
+  end
+
+  private
+
+  def group_params
+    params.require(:group).permit(:name, :description)
   end
 end
 # groups GET         /groups(.:format)                            groups#index

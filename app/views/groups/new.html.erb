@@ -1,1 +1,11 @@
 create a new group form here!!!!
+
+<%= form_for @group do |f| %>
+  <%= f.label :name %>
+  <%= f.text_field :name %>
+        <br><br>
+  <%= f.label :desctiption %>
+  <%= f.text_field :description %>
+        <br><br>
+  <%= f.submit %>
+<% end %>

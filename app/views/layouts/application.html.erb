@@ -9,6 +9,15 @@
   </head>
 
   <body>
+    <div class="container">
+      <nav>
+            <li><%= link_to "Sign in with facebook", omniauth_authorize_path(@user, "facebook") %></li>
+            <li>this will be a sign-up link</li>
+            <li>navigation here</li>
+      </nav>
+    </div>
+
+
     <%= yield %>
   </body>
 </html>

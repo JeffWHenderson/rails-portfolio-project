@@ -1,1 +1,8 @@
 Groups Index
+
+<% @groups.each do |g| %>
+  <h3><%= g.name %></h3>
+  <%= g.description %>
+<% end %>
+
+<br><br><br>

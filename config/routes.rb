@@ -5,6 +5,7 @@ Rails.application.routes.draw do
 
   root 'users#index'
 
+  get 'meetups', to: "meetups#all"
   resources :groups do
     resources :meetups
   end

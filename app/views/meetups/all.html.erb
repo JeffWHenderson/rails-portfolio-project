@@ -1,0 +1,6 @@
+<h1>All Meetups Everywhere</h1>
+
+<% @meetups.each do |m| %>
+  <%= link_to "#{m.group.name}", group_path("#{m.group.id}") %>
+  <%= link_to "#{m.name}", group_meetups_path("#{m.group.id}", m) %><br>
+<% end %>

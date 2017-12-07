@@ -1,2 +1,7 @@
-Group Show page
-<%= @group.name %>
+<h1><%= @group.name %></h1>
+<h3><%= @group.description %></h3>
+
+<br>
+link to join this group!!!
+<br>
+<%= link_to "See all the Meetups for this group", group_meetups_path(@group) %>

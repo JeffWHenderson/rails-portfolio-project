@@ -1,5 +1,6 @@
 class GroupsController < ApplicationController
   def index
+    @groups = Group.all
   end
 
   def show
@@ -9,7 +10,7 @@ class GroupsController < ApplicationController
   def new
     @group = Group.new
   end
-  
+
   def create
     @group = Group.new(group_params)
     if  @group.save
@@ -39,7 +40,7 @@ class GroupsController < ApplicationController
   def destroy   #i need to make a current_user helper method.. I'm not getting it from devise???? actually Why not, gosh dard devise has been annoying
     @group = Group.find(params[:id]) #current_user.groups.find(params[:id])
     @group.destroy
-    flash[:notice] = "Review deleted"
+    flash[:notice] = "Group deleted"
     redirect_to root_path #user_path(current_user)
   end
 

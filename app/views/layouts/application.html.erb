@@ -12,11 +12,12 @@
     <div class="container">
       <nav>
             <li><%= link_to "Sign in with facebook", omniauth_authorize_path(User.new, "facebook") %></li>
-            <li>this will be a sign-up link</li>
-            <li>navigation here</li>
+            <li><%= link_to "All Groups", groups_path %></li>
+            <li><%= link_to "All Meetups", meetups_path %></li>
+            <li><%= link_to "Create A Group", new_group_path %></li>
       </nav>
     </div>
-    <h2><%= flash[:notice] if flash[:notice] %></h2>  
+    <h2><%= flash[:notice] if flash[:notice] %></h2>
 
     <%= yield %>
   </body>

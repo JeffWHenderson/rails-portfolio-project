@@ -1,16 +1,24 @@
 class MeetupsController < ApplicationController
   def index
+    @group = Group.find(params[:group_id])
+    @meetups = Meetup.all
   end
+
   def show
+    @group = Group.find(params[:group_id])
+    @meetup = Meetup.find(params[:id]) #this is wrong.. I only want to find the meetup that is specific for this group.. my links may take care of this (/groups/meetups/1 wouldn't exist because meetup 1 doesn't belong to the group..) but I also need to prevent users from typing url directly.
   end
+
   def new
   end
+
   def create
   end
 
   #needs authorizations
   def edit
   end
+
   def update
   end
   #how can I verify that only the creator of a meetup can delete it????

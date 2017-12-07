@@ -1,1 +1,6 @@
-Index page for meetings !!!!
+Index page for meetings !!!! <br>
+<%= @group.name %><br>
+
+<% @meetups.each do |m| %>
+  <%= m.name %><br>
+<% end %>

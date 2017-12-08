@@ -7,7 +7,7 @@ class SessionsController < ApplicationController
     end
   end
 
-  def create
+  def create #use strong params here
     @user = User.find_by(email: params[:user][:email])
     if @user #&& @user.authenticate(params[:user][:password])
       redirect_to root_path
@@ -22,4 +22,8 @@ class SessionsController < ApplicationController
   end
 
   private
+
+  def session_params
+    params.require(:user).permit(:email, :password)
+  end
 end

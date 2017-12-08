@@ -3,7 +3,8 @@ class User < ApplicationRecord
   # :confirmable, :lockable, :timeoutable and :omniauthable
   has_many :user_groups
   has_many :groups, through: :user_groups
-
+  has_secure_password
+  
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable, :confirmable
   devise :omniauthable, omniauth_providers: %i[facebook]

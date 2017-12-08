@@ -5,7 +5,7 @@ Rails.application.routes.draw do
 
   # devise_for :users, controllers: { omniauth_callbacks: 'users/omniauth_callbacks'}
 
-  root 'users#show'
+  root 'users#index'
 
           get '/sign_in', to:  "sessions#new"
           post '/sign_in', to: "sessions#create"

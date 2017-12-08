@@ -18,9 +18,10 @@ class UsersController < ApplicationController
   end
 
   def create
-    #@user = User.new(user_params)
-    if User.new(user_params).save
-      raise @user.inspect
+    @user = User.new(user_params)
+    if @user.save
+      session[:user] = @user
+      redirect_to user_path(@user)
     else
       redirect_to sign_up_path
     end

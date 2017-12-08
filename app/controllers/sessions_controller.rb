@@ -1,9 +1,9 @@
 class SessionsController < ApplicationController
   def new
-    if session[:user]
+    if !session[:user]
       @user = User.new
     else
-      redirect_to users_path
+      redirect_to '/'
     end
   end
 

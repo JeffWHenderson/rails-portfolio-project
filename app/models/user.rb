@@ -4,9 +4,9 @@ class User < ApplicationRecord
   has_many :user_groups
   has_many :groups, through: :user_groups
   has_secure_password
-  
-  devise :database_authenticatable, :registerable,
-         :recoverable, :rememberable, :trackable, :validatable, :confirmable
+
+  # devise :database_authenticatable, :registerable,
+  #        :recoverable, :rememberable, :trackable, :validatable, :confirmable
   devise :omniauthable, omniauth_providers: %i[facebook]
 
   def self.from_omniauth(auth)

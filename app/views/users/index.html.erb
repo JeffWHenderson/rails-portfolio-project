@@ -1,3 +1,5 @@
+<h1><%= session[:user] %></h1>
+
 <h1>Hello, World!</h1>
 id: <%= session[:user]['id'] %><br>
 email: <%= session[:user]['email'] %><br>
@@ -33,5 +35,3 @@ location: <%= Meetup.first.location %><br>
 day: <%= Meetup.first.day %><br>
 time: <%= Meetup.first.time %><br>
 group: <%= Meetup.first.group.name %><br>
-
-    <%= link_to "Sign in with facebook", omniauth_authorize_path(@user, "facebook") %>

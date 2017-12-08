@@ -18,7 +18,8 @@
       </nav>
     </div>
     <h2><%= flash[:notice] if flash[:notice] %></h2>
-
-    <%= yield %>
+    <div class="content">
+        <%= yield %>
+    </div>
   </body>
 </html>

@@ -13,18 +13,28 @@
  *= require_tree .
  *= require_self
  */
-body { background-color: red;}
+body { background-color: lightblue;}
 
-.container {
-  width: 100%;
+div.container {
+  background-color: white;
   display: block;
-  margin: 0px;
-  padding: 0px;
-  border: 0px;
+  margin: 0 auto;
+  width: 85%;
+  padding: 5px;
+  border: solid 2px black;
 }
 .container li {
   border-left: solid 1px black;
-  padding: 7px;
   display: inline;
-  color: red;
+  margin: 0px;
+  padding: 0px;
+  padding: 0px 5px;
+}
+
+div.content {
+  background-color: white;
+  border: solid 2px black;
+  padding: 10px;
+  width: 85%;
+  margin: 0 auto;
 }

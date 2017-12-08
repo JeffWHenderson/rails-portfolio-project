@@ -1,6 +1,6 @@
 <% @groups.each do |g| %>
 <div class="content center">
-  <h3><%= g.name %></h3>
+  <h3><%= link_to "#{g.name}", "/groups/#{g.id}" %></h3>
   <%= g.description %>
 </div>
 <% end %>

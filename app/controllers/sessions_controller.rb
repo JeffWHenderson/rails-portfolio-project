@@ -1,8 +1,10 @@
 class SessionsController < ApplicationController
   def new
-    if !current_user
+    if current_user.empty?
       @user = User.new
     else
+      #this is showing on the signup path for some reason????
+      #flash[:notice] = "Sign in failed, would you like to sign up??"
       redirect_to '/'
     end
   end

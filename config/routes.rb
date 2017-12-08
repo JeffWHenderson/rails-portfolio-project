@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
 
   resources :user_groups, only: [:create]
-  resources :users, only: [:show]
+  resources :users, only: [:show, :new, :create]
 
   # devise_for :users, controllers: { omniauth_callbacks: 'users/omniauth_callbacks'}
 

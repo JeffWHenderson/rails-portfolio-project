@@ -3,6 +3,15 @@
   <h3><%= @group.description %></h3>
 </div>
 <br>
-link to join this group!!!
+or <%= link_to "Create a Meetup for this Group", new_group_meetup_path(@group)%>
 <br>
 <%= link_to "See all the Meetups for this group", group_meetups_path(@group) %>
+
+
+
+
+  <%= form_tag user_groups_path, :method => :post do %>
+
+    <%= hidden_field_tag :group_id, @group.id %>
+    <%= submit_tag "JOIN GROUP!" %>
+ <% end %>

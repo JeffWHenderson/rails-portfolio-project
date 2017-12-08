@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
 
-  #resources :user_groups
+  resources :user_groups, only: [:create]
   devise_for :users, controllers: { omniauth_callbacks: 'users/omniauth_callbacks'}
 
   root 'users#index'

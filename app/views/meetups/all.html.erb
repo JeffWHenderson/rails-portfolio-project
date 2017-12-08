@@ -1,6 +1,11 @@
-<h1>All Meetups Everywhere</h1>
+<div class="center">
+  <h1>All Meetups Everywhere</h1>
+</div>
 
 <% @meetups.each do |m| %>
-  <%= link_to "#{m.group.name}", group_path("#{m.group.id}") %>
-  <%= link_to "#{m.name}", group_meetups_path("#{m.group.id}", m) %><br>
+  <div class="content center">
+    <h3>group: <%= link_to "#{m.group.name}", group_path("#{m.group.id}") %></h3>
+
+  <p>event:  <%= link_to "#{m.name}", group_meetups_path("#{m.group.id}", m) %></p>
+  </div>
 <% end %>

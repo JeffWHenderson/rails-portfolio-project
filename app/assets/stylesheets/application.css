@@ -37,4 +37,9 @@ div.content {
   padding: 10px;
   width: 85%;
   margin: 0 auto;
+  margin-bottom: 10px;
+}
+
+.center {
+  text-align: center;
 }

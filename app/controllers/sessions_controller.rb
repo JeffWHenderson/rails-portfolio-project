@@ -1,6 +1,6 @@
 class SessionsController < ApplicationController
   def new
-    if !session[:user]
+    if !current_user
       @user = User.new
     else
       redirect_to '/'
@@ -9,7 +9,9 @@ class SessionsController < ApplicationController
 
   def create #use strong params here
     @user = User.find_by(email: params[:user][:email])
-    if @user #&& @user.authenticate(params[:user][:password])
+    if @user && @user.authenticate(params[:user][:password])
+      @user.save
+      session[:user] = @user
       redirect_to root_path
     else
       redirect_to sign_up_path

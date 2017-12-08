@@ -1,4 +1,4 @@
-<h1><%= session[:user] %></h1>
+<h1><%= current_user.inspect %></h1>
 
 <h1>Hello, World!</h1>
 id: <%= session[:user]['id'] %><br>

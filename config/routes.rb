@@ -3,7 +3,7 @@ Rails.application.routes.draw do
   resources :user_groups, only: [:create]
   devise_for :users, controllers: { omniauth_callbacks: 'users/omniauth_callbacks'}
 
-  root 'users#index'
+  root 'users#show'
 
   get 'meetups', to: "meetups#all"
   resources :groups do

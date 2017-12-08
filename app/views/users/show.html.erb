@@ -1,1 +1,4 @@
-Inside show
+<h1>All My Groups</h1><br>
+<% @ug.each do |connection| %>
+  <%= link_to "#{Group.find(connection.group_id).name}", group_path("#{connection.group_id}") %><br>
+<% end %>

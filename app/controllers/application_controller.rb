@@ -8,5 +8,10 @@ class ApplicationController < ActionController::Base
   def logged_in?
     !current_user.empty?
   end
-  helper_method :current_user, logged_in? #make this method available in views
+
+  def user_id
+    current_user['id']
+  end
+
+  helper_method :current_user, :logged_in?, :user_id #make this method available in views
 end

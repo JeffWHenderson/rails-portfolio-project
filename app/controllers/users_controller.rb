@@ -3,15 +3,18 @@ class UsersController < ApplicationController
     @user = User.new
   end
 
-  def show
-    if session[:user]
-      redirect_to sign_in_path
-    else
-      @ug = UserGroup.all.select do |ug|
-        ug.user_id == 1 #session[:user]['id']
-      end
-    end
-  end
+#this is not functional until i make a UserGroup class Method
+                        def show
+                          if session[:user]
+                            redirect_to root_path
+                            #redirect_to sign_in_path
+                          else
+                            redirect_to root_path
+                            # @ug = UserGroup.all.select do |ug|
+                            #   ug.user_id == 1 #session[:user]['id']
+                            #end
+                          end
+                        end
 
   def new
     @user = User.new

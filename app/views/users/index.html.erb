@@ -1,3 +1,5 @@
+<%#= link_to('Log in with Facebook!', '/auth/facebook') %>
+<%= link_to "Sign in with facebook", omniauth_authorize_path(@user, "facebook") %>
 <h1><%= user_id.inspect %></h1>
 
 <h1>Hello, World!</h1>

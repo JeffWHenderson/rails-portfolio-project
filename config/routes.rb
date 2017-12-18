@@ -8,6 +8,7 @@ Rails.application.routes.draw do
   root 'users#index'
 
   get '/sign_in', to:  "sessions#new"
+  get '/auth/facebook/callback' => 'sessions#create'
   post '/sign_in', to: "sessions#create"
   get '/sign_out', to: "sessions#destroy"
 
@@ -17,7 +18,7 @@ Rails.application.routes.draw do
     resources :meetups
   end
 
-  # devise_for :users, controllers: { omniauth_callbacks: 'users/omniauth_callbacks'}
+  devise_for :users, controllers: { omniauth_callbacks: 'users/omniauth_callbacks'}
   #get '/', to: 'user/sessions#create'
 end
 # Prefix Verb   URI Pattern                                  Controller#Action

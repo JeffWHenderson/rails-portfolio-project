@@ -1,8 +1,12 @@
+<h1>Sign in</h1>
+
+<br><br>
 <%= form_for(@user, url: sign_in_path) do |f| %>
   email: <%= f.text_field :email %>
   password: <%= f.text_field :password %>
   <%= f.submit %>
 <% end %>
-<br>
-<br>
-Not a member? <%= link_to "Sign Up", sign_up_path %>
+<br><br><br><br><br>
+<h3>Not a member?</h3>
+<%= link_to "Sign Up", sign_up_path %> or
+<%= link_to('Log in with Facebook!', '/auth/facebook') %>

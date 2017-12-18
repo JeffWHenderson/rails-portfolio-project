@@ -1,21 +1,23 @@
 class User < ApplicationRecord
-  # Include default devise modules. Others available are:
-  # :confirmable, :lockable, :timeoutable and :omniauthable
   has_many :user_groups
   has_many :groups, through: :user_groups
   has_secure_password
 
-  # devise :database_authenticatable, :registerable,
-  #        :recoverable, :rememberable, :trackable, :validatable, :confirmable
-  devise :omniauthable, omniauth_providers: %i[facebook]
 
-  def self.from_omniauth(auth)
-    where(provider: auth.provider, uid: auth.uid).first_or_create do |user|
-      user.email = auth.info.email
-      user.password = Devise.friendly_token[0,20]
-    end
-  end
 end
+
+# devise :database_authenticatable, :registerable,
+#        :recoverable, :rememberable, :trackable, :validatable, :confirmable
+#devise :omniauthable, omniauth_providers: %i[facebook]
+
+# def self.from_omniauth(auth)
+#   where(provider: auth.provider, uid: auth.uid).first_or_create do |user|
+#     user.email = auth.info.email
+#     user.password = Devise.friendly_token[0,20]
+#   end
+# end
+
+
 #     This is what facebook sends
 # <OmniAuth::AuthHash credentials=#
 # <OmniAuth::AuthHash expires=true expires_at=1517694882

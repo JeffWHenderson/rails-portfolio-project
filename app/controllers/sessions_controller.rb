@@ -1,11 +1,11 @@
 class SessionsController < ApplicationController
   def new
-    if current_user.empty?
-      @user = User.new
+    if current_user
+      redirect_to '/'
     else
       #this is showing on the signup path for some reason????
       #flash[:notice] = "Sign in failed, would you like to sign up??"
-      redirect_to '/'
+      @user = User.new
     end
   end
 
@@ -34,7 +34,7 @@ class SessionsController < ApplicationController
   end
 
   def destroy
-    session[:user].clear
+    session[:user] = nil
     redirect_to root_path
   end
 

@@ -6,8 +6,8 @@
 
 <h3>tags</h3>
 <% @meetup.tags.each do |t| %>
-  <%= t.name %>
-<% end %>
+  <%= t.name %><br>
+<% end %><br>
 
 <%= link_to "edit", edit_group_meetup_path(@group, @meetup)  %> -
 <%= link_to "delete", group_meetup_path(@group, @meetup), method: :delete, data: { confirm: "You sure?" } %><br>

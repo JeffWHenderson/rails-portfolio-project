@@ -15,8 +15,11 @@ new Meeting Page!!!
 
     <%= f.hidden_field :group_id, value: @group.id %>
 
-    <%= f.collection_check_boxes(:tag_ids, Tag.all, :id, :name) %>
-    <%#= fields_for :tags, @meetup.tags do |tags| %>
+    <%= f.collection_check_boxes(:tag_ids, Tag.all, :id, :name) %><br>
+
+    <%= f.fields_for :tags, Tag.new do |tag_builder| %>
+      <%= tag_builder.text_field :name %>
+    <% end %>
   <%# end %>
 
     <%= f.submit %>

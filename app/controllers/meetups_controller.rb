@@ -12,9 +12,11 @@ class MeetupsController < ApplicationController
   def new
     @group = Group.find(params[:group_id])
     @meetup = Meetup.new#find(params[:id])
+    # @meetup.tags.build
   end
 
   def create
+    #raise params.inspect
     @group = Group.find(params[:group_id])
     @meetup = Meetup.new(meetup_params)
     if @meetup.save
@@ -60,8 +62,9 @@ class MeetupsController < ApplicationController
   private
 
   def meetup_params
-    params.require(:meetup).permit(:name, :location, :day, :time, :group_id)
+    params.require(:meetup).permit(:name, :location, :day, :time, :group_id, :tag_ids => [], :tags_attributes => [:name])
   end
+  #<input type="text" name="tags_attributes[0][name]" id="meetup_tags_attributes_0_name">
 end
 # group_meetups GET       /groups/:group_id/meetups(.:format)           meetups#index
 #      POST               /groups/:group_id/meetups(.:format)           meetups#create

@@ -4,5 +4,10 @@
 <%= @meetup.time %><br>
 <%= @meetup.day %><br>
 
+<h3>tags</h3>
+<% @meetup.tags.each do |t| %>
+  <%= t.name %>
+<% end %>
+
 <%= link_to "edit", edit_group_meetup_path(@group, @meetup)  %> -
 <%= link_to "delete", group_meetup_path(@group, @meetup), method: :delete, data: { confirm: "You sure?" } %><br>

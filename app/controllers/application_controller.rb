@@ -10,7 +10,11 @@ class ApplicationController < ActionController::Base
   end
 
   def user_id
-    current_user
+    if current_user
+      current_user['id']
+    else
+      nil
+    end
   end
 
   helper_method :current_user, :logged_in?, :user_id #make this method available in views

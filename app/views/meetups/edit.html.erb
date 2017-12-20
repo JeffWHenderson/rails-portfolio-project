@@ -1,18 +1,3 @@
 edit meetups page!!!!!
 
-<%= form_for([@group, @meetup]) do |f| %>
-  <%= f.label :name %>
-  <%= f.text_field :name %><br>
-
-  <%= f.label :location %>
-  <%= f.text_field :location %><br>
-
-  <%= f.label :day %>
-  <%= f.text_field :day %><br>
-
-  <%= f.label :time %>
-  <%= f.text_field :time %><br>
-
-  <%= f.hidden_field :group_id, value: @group.id %>
-  <%= f.submit %>
-<% end %>
+<%= render "form" %>

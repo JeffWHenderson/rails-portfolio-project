@@ -4,12 +4,4 @@
   <%# end %>
 <%# end %>
 
-<%= form_for @group do |f| %>
-  <%= f.label :name %><%= @group.errors.full_messages_for(:name).first %>
-  <%= f.text_field :name, :placeholder => (@group.errors.full_messages_for(:name).first || "Enter name here") %>
-        <br><br>
-  <%= f.label :description %><%= @group.errors.full_messages_for(:description).first  %>
-  <%= f.text_area :description %>
-        <br><br>
-  <%= f.submit %>
-<% end %>
+<%= render "form" %>

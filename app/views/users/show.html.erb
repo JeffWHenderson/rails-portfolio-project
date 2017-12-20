@@ -1,1 +1,8 @@
 <h1>welcome <%= user_id.inspect %></h1>
+
+<h3>My groups:</h3>
+<ul>
+<% UserGroup.my_groups(user_id).each do |g| %>
+   <li><%=link_to g.group.name, group_path(g.group) %></li>
+<% end %>
+</ul>

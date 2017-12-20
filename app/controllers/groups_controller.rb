@@ -17,7 +17,7 @@ class GroupsController < ApplicationController
       redirect_to group_path(@group)
     else
       flash[:notice] = "group creation was unsuccessful"
-      redirect_to root_path
+      render new_group_path
     end
   end
 

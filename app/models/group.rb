@@ -6,5 +6,5 @@ class Group < ApplicationRecord
   validates :name, presence: true
   validates :name, uniqueness: true
   validates :description, length: { maximum: 150,
-    too_long: "%{count} characters is the maximum allowed" }
+    too_long: "%{count} characters is the maximum allowed Dude" }
 end

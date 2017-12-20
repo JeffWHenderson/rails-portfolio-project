@@ -1,5 +1,5 @@
 <%= form_for(:user, url: sign_up_path)  do |f| %>
-  email: <%= f.text_field :email %>
-  password: <%= f.text_field :password %>
+  email: <%= f.text_field :email, :placeholder => (@user.errors.full_messages_for(:email).first || "Enter email here") %>
+  password: <%= f.text_field :password, :placeholder => (@user.errors.full_messages_for(:password).first || "Enter password here") %>
   <%= f.submit %>
 <% end %>

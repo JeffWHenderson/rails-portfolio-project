@@ -26,7 +26,7 @@ class UsersController < ApplicationController
       session[:user] = @user
       redirect_to user_path(@user)
     else
-      redirect_to sign_up_path
+      render 'new'
     end
   end
 

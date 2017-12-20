@@ -24,7 +24,8 @@ class MeetupsController < ApplicationController
       redirect_to group_meetup_path(@group, @meetup)
     else
       flash[:notice] = "meetup creation was unsuccessful"
-      redirect_to root_path
+      #render new_group_meetup_url
+      render 'new'
     end
   end
 

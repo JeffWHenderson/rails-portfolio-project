@@ -2,7 +2,7 @@ new Meeting Page!!!
 
   <%= form_for([@group, @meetup]) do |f| %>
     <%= f.label :name %>
-    <%= f.text_field :name %><br>
+    <%= f.text_field :name, :placeholder => (@meetup.errors.full_messages_for(:name).first || "") %><br>
 
     <%= f.label :location %>
     <%= f.text_field :location %><br>

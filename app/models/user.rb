@@ -3,7 +3,10 @@ class User < ApplicationRecord
   has_many :groups, through: :user_groups
   has_secure_password
 
-
+  validates :email, presence: true
+  #validates :email, confirmation: true
+  validates :password, length: { minimum: 7 }
+  #validates :password, length: { maximum: 16 }
 end
 
 # devise :database_authenticatable, :registerable,

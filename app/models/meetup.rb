@@ -3,6 +3,8 @@ class Meetup < ApplicationRecord
   has_many :meetup_tags
   has_many :tags, through: :meetup_tags
 
+  validates :name, presence: true
+
   def tags_attributes=(tags_hashes)
     #raise tags_hashes.inspect
     #{"0"=>{"name"=>"Spooky"}}

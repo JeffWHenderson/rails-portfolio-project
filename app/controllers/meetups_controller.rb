@@ -1,4 +1,8 @@
 class MeetupsController < ApplicationController
+  def sunday
+    @sundays = Meetup.sunday?
+  end
+
   def index
     @group = Group.find(params[:group_id])
     @meetups = @group.meetups

@@ -5,6 +5,8 @@ class Meetup < ApplicationRecord
 
   validates :name, presence: true
 
+  scope :sunday?, -> { where(day: 'Sunday') }
+
   def tags_attributes=(tags_hashes)
     #raise tags_hashes.inspect
     #{"0"=>{"name"=>"Spooky"}}

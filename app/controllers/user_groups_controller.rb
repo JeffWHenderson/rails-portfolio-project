@@ -1,7 +1,11 @@
 class UserGroupsController < ApplicationController
   def comment
-    #b = UserGroup.new(comment: comment, group_id: group_id, user_id: user_id)
-    raise b.inspect
+    comment = params['comment'].inspect
+    user_id = params['user_id']
+    group_id = params['group_id']
+    ug = UserGroup.new(:comment => comment, :user_id => user_id, :group_id => group_id)
+    ug.save
+    redirect_to group_path(group_id)
   end
 
   def create

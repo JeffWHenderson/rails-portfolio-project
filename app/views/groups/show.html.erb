@@ -4,6 +4,12 @@
 </div>
 <br>
 <h3>Comments</h3>
+<%  UserGroup.where(:group_id => "#{params['id']}").each do |association| %>
+  <% if !association.comment.nil? %>
+    <%= User.find(association.user_id).email %> says  "<%= association.comment %>"<br>
+  <% end %>
+<% end %>
+
 
 <h3>leave a comment here</h3>
 <%= form_tag "/user_group/comment", :method => :post do %>

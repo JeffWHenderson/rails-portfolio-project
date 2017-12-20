@@ -5,7 +5,7 @@ Rails.application.routes.draw do
   resources :users, only: [:show]
   get '/sign_up', to: "users#new"
   post '/sign_up', to: "users#create"
-  root 'users#index'
+  root 'users#show'
 
   get '/sign_in', to:  "sessions#new"
   get '/auth/facebook/callback' => 'sessions#facebook'

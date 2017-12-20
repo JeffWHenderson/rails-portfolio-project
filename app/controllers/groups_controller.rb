@@ -37,12 +37,12 @@ class GroupsController < ApplicationController
   end
 
   #how can I verify that only the creator of a group can delete it????
-  def destroy   #i need to make a current_user helper method.. I'm not getting it from devise???? actually Why not, gosh dard devise has been annoying
-    @group = Group.find(params[:id]) #current_user.groups.find(params[:id])
-    @group.destroy
-    flash[:notice] = "Group deleted"
-    redirect_to root_path #user_path(current_user)
-  end
+  # def destroy
+  #   @group = Group.find(params[:id]) #current_user.groups.find(params[:id])
+  #   @group.destroy
+  #   flash[:notice] = "Group deleted"
+  #   redirect_to root_path #user_path(current_user)
+  # end
 
   private
 

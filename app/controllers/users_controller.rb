@@ -1,11 +1,10 @@
 class UsersController < ApplicationController
   def show
-    @user = User.new
-    #  if session[:user]
-    #     # @ug = UserGroup.all.select do |ug|
-    #     #   ug.user_id == 1 #session[:user]['id']
-    #     #end
-    #  end
+     if current_user
+       @user = User.new
+     else
+       redirect_to sign_in_path
+     end
   end
 
   def new

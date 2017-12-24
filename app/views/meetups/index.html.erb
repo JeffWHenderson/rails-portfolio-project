@@ -1,5 +1,5 @@
-<%= @group.name %><br>
+<h1>meetups for <%= @group.name %></h1><br>
 
 <% @meetups.each do |m| %>
-  <%= m.name %><br>
+  <%= link_to m.name, group_meetup_path("#{m.group.id}", "#{m.id}") %><br>
 <% end %>

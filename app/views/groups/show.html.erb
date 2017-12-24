@@ -6,7 +6,7 @@
 <h3>Comments</h3>
 <%  UserGroup.where(:group_id => "#{params['id']}").each do |association| %>
   <% if !association.comment.nil? %>
-    <%= User.find(association.user_id).email %> says  "<%= association.comment %>"<br>
+    <%= User.find(association.user_id).email.scan(/(^\w+)/)[0].first %> says  <%= association.comment %><br>
   <% end %>
 <% end %>
 
@@ -25,8 +25,3 @@
 or <%= link_to "Create a Meetup for this Group", new_group_meetup_path(@group)%>
 <br>
 <%= link_to "See all the Meetups for this group", group_meetups_path(@group) %>
-
-  <%= form_tag user_groups_path, :method => :post do %>
-    <%= hidden_field_tag :group_id, @group.id %>
-    <%= submit_tag "JOIN GROUP!" %>
- <% end %>

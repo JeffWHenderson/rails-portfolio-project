@@ -1,27 +1,29 @@
 <div class="center">
   <h1><%= @group.name %></h1>
   <h3><%= @group.description %></h3>
+  <div class="left">
+    <p><%= link_to "Create a Meetup for this Group", new_group_meetup_path(@group)%></p>
+  </div>
+  <div class="right">
+    <p><%= link_to "See all the Meetups for this group", group_meetups_path(@group) %></p>
+  </div>
 </div>
-<br>
-<h3>Comments</h3>
-<%  UserGroup.where(:group_id => "#{params['id']}").each do |association| %>
-  <% if !association.comment.nil? %>
-    <%= User.find(association.user_id).email.scan(/(^\w+)/)[0].first %> says  <%= association.comment %><br>
+
+<div class=""><br><br>
+  <h3>Comments</h3>
+  <%  UserGroup.where(:group_id => "#{params['id']}").each do |association| %>
+    <% if !association.comment.nil? %>
+      <%= User.find(association.user_id).email.scan(/(^\w+)/)[0].first %> says  <%= association.comment %><br>
+    <% end %>
   <% end %>
-<% end %>
+</div>
 
-
-<h3>leave a comment here</h3>
-<%= form_tag "/user_group/comment", :method => :post do %>
-  <%= text_area_tag "comment" %>
-  <%= hidden_field_tag :group_id, @group.id %>
-  <%= hidden_field_tag :user_id, user_id %>
-  <%= submit_tag "comment" %>
-<% end %>
-
-
-
-<br>
-or <%= link_to "Create a Meetup for this Group", new_group_meetup_path(@group)%>
-<br>
-<%= link_to "See all the Meetups for this group", group_meetups_path(@group) %>
+<div class="">
+  <h3>leave a comment here</h3>
+  <%= form_tag "/user_group/comment", :method => :post do %>
+    <%= text_area_tag "comment" %>
+    <%= hidden_field_tag :group_id, @group.id %>
+    <%= hidden_field_tag :user_id, user_id %>
+    <%= submit_tag "comment" %>
+  <% end %>
+</div>

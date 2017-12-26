@@ -14,8 +14,17 @@
  *= require_self
  */
 .field_with_errors {
-  background-color: red;
+
 }
+
+.left {
+  float: left;
+}
+
+.right {
+  float: right;
+}
+
 
 body {
   background-color: lightblue;

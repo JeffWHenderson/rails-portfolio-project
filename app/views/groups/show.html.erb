@@ -11,10 +11,8 @@
 
 <div class=""><br><br>
   <h3>Comments</h3>
-  <%  UserGroup.where(:group_id => "#{params['id']}").each do |association| %>
-    <% if !association.comment.nil? %>
+  <%  UserGroup.group_comments("#{@group.id}").each do |association| %>
       <%= User.chop_email(association.user_id) %> says  <%= association.comment %><br>
-    <% end %>
   <% end %>
 </div>
 

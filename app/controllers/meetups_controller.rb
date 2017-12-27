@@ -20,15 +20,12 @@ class MeetupsController < ApplicationController
   end
 
   def create
-    #raise params.inspect
-    @group = Group.find(params[:group_id])
     @meetup = Meetup.new(meetup_params)
     if @meetup.save
       flash[:notice] = "save succuessful"
-      redirect_to group_meetup_path(@group, @meetup)
+      redirect_to group_meetup_path(@meetup.group, @meetup)
     else
       flash[:notice] = "meetup creation was unsuccessful"
-      #render new_group_meetup_url
       render 'new'
     end
   end

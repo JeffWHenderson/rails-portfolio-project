@@ -3,13 +3,11 @@ class SessionsController < ApplicationController
     if current_user
       redirect_to '/'
     else
-      #this is showing on the signup path for some reason????
-      #flash[:notice] = "Sign in failed, would you like to sign up??"
       @user = User.new
     end
   end
 
-  def create #use strong params here
+  def create #use strong params here ################################################
     @user = User.find_by(email: params[:user][:email])
     if @user && @user.authenticate(params[:user][:password])
       @user.save

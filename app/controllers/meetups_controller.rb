@@ -51,13 +51,12 @@ class MeetupsController < ApplicationController
     end
 
   end
-  #how can I verify that only the creator of a meetup can delete it????
-  # could i look at the First instance of a user_group and verify THAT was the creator?
+
   def destroy
     @meetup = Meetup.find(params[:id]) #current_user.groups.find(params[:id])
     @meetup.destroy
     flash[:notice] = "Meetup deleted"
-    redirect_to root_path #user_path(current_user)
+    redirect_to root_path
   end
 
   def all
@@ -69,7 +68,6 @@ class MeetupsController < ApplicationController
   def meetup_params
     params.require(:meetup).permit(:name, :location, :day, :time, :group_id, :tag_ids => [], :tags_attributes => [:name])
   end
-  #<input type="text" name="tags_attributes[0][name]" id="meetup_tags_attributes_0_name">
 end
 # group_meetups GET       /groups/:group_id/meetups(.:format)           meetups#index
 #      POST               /groups/:group_id/meetups(.:format)           meetups#create

@@ -8,6 +8,10 @@ class User < ApplicationRecord
   #validates :email, confirmation: true
   validates :password, length: { minimum: 7,  too_long: "%{count} characters is the minimum allowed" }
   #validates :password, length: { maximum: 16 }
+
+  def self.chop_email(user_id)
+    self.find(user_id).email.scan(/(^\w+)/)[0].first
+  end
 end
 
 

@@ -13,7 +13,7 @@
   <h3>Comments</h3>
   <%  UserGroup.where(:group_id => "#{params['id']}").each do |association| %>
     <% if !association.comment.nil? %>
-      <%= User.find(association.user_id).email.scan(/(^\w+)/)[0].first %> says  <%= association.comment %><br>
+      <%= User.chop_email(association.user_id) %> says  <%= association.comment %><br>
     <% end %>
   <% end %>
 </div>

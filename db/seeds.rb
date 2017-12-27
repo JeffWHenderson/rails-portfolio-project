@@ -1,7 +1,22 @@
-# This file should contain all the record creation needed to seed the database with its default values.
-# The data can then be loaded with the rails db:seed command (or created alongside the database with db:setup).
-#
-# Examples:
-#
-#   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
-#   Character.create(name: 'Luke', movie: movies.first)
+user_1 = User.create(email: "jhende34@myvu.vinu.edu", password: "password", uid: "10155920593441031")
+user_2 = User.create(email: "beyang@email.com", password: "password", uid: nil)
+user_3 = User.create(email: "julia@email.com", password: "password", uid: nil)
+
+group_1 = Group.create(name: "Ruby developers", description: "Finally, a group for ruby developers. Come meet de...")
+group_2 = Group.create(name: "The Loomers", description: "We have looms and we aren't afraid to weave with t...")
+group_3 = Group.create(name: "Patrick Swayze Fan Club", description: "Come Watch Roadhouse, Dirty Dancing, and Ghost wit...")
+
+meetup_1 = Meetup.create(name: "Lunch and Learn", location: "WeWork", day: "Sunday", time: "12:00pm", group_id: 1)
+meetup_2 = Meetup.create(name: "Tapestry Day", location: "Art Studio", day: "Sunday", time: "7:00pm", group_id: 2)
+meetup_3 = Meetup.create(name: "RoadHouse Screening", location: "Jess's House", day: "Sunday", time: "9:00pm ", group_id: 3)
+meetup_4 = Meetup.create(name: "Loom Wednesday", location: "Art Studio", day: "Wednesday", time: "All Day", group_id: 2)
+
+meetup_tag_1 = MeetupTag.create(tag_id: 1, meetup_id: 1)
+meetup_tag_2 = MeetupTag.create(tag_id: 1, meetup_id: 2)
+meetup_tag_3 = MeetupTag.create(tag_id: 2, meetup_id: 2)
+meetup_tag_4 = MeetupTag.create(tag_id: 3, meetup_id: 3)
+meetup_tag_5 = MeetupTag.create(tag_id: 4, meetup_id: 1)
+meetup_tag_6 = MeetupTag.create(tag_id: 5, meetup_id: 1)
+meetup_tag_7 = MeetupTag.create(tag_id: 1, meetup_id: 4)
+meetup_tag_8 = MeetupTag.create(tag_id: 5, meetup_id: 4)
+meetup_tag_9 = MeetupTag.create(tag_id: 6, meetup_id: 4)

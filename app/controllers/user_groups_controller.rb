@@ -8,6 +8,7 @@ class UserGroupsController < ApplicationController
     else
       flash[:notice] = "comments can't be blank"
       redirect_to group_path(p["group_id"])
+              #render :js => "alert('comment can't  be blank');"
               # @group = Group.find(p['group_id'])
               # render template: "groups/show"
     end

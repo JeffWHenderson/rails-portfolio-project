@@ -31,7 +31,7 @@ gem 'jbuilder', '~> 2.5'
  gem 'bcrypt', '~> 3.1.7'
 
  #devise for authentication and authorization. use omniathable for github singin
- gem 'devise'
+ #gem 'devise'
 
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development

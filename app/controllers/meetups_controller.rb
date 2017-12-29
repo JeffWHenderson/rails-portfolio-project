@@ -1,6 +1,8 @@
 class MeetupsController < ApplicationController
-  def sunday
-    @sundays = Meetup.sunday?
+  def day_select
+    #raise params.inspect
+    @display_day = params[:day]
+    @day = Meetup.day_of_the_week(@display_day)
   end
 
   def index
@@ -65,6 +67,10 @@ class MeetupsController < ApplicationController
 
   def meetup_params
     params.require(:meetup).permit(:name, :location, :day, :time, :group_id, :tag_ids => [], :tags_attributes => [:name])
+  end
+
+  def day_param
+    params.permit(:day)
   end
 end
 # group_meetups GET       /groups/:group_id/meetups(.:format)           meetups#index

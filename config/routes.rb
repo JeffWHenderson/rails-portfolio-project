@@ -14,7 +14,7 @@ Rails.application.routes.draw do
 
   get 'meetups', to: "meetups#all"
 
-  get 'meetups/sunday', to: "meetups#sunday"
+  post 'meetups/day_select', to: "meetups#day_select"
   post 'user_group/comment', to: "user_groups#comment"
 
   resources :groups do

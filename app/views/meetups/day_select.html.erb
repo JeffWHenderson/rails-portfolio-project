@@ -1,5 +1,5 @@
-<% @sundays.each do |meetup| %>
-  <h2>Sunday Meetup!</h2>
+<% @day.each do |meetup| %>
+  <h2><%= @display_day %> Meetup!</h2>
   FOR: <%= meetup.group.name %><br>
   Name: <%= meetup.name %><br>
   At: <%= meetup.location %>

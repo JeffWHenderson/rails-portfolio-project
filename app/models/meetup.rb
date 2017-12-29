@@ -7,6 +7,8 @@ class Meetup < ApplicationRecord
 
   scope :sunday?, -> { where(day: 'Sunday') }
 
+  scope :day_of_the_week, ->(day) { where(day: day) }
+
   def tags_attributes=(tags_hashes)
     #raise tags_hashes.inspect
     #{"0"=>{"name"=>"Spooky"}}

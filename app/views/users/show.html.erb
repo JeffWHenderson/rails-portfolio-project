@@ -12,4 +12,13 @@
 
 <br><br><br>
 
-<%= link_to "meetups on sunday", "/meetups/sunday" %>
+<%#= form_tag("/meetups/sunday", method: "post") do %>
+  <%#= select_tag "day", "<option>Sunday</option><option>Monday</option><option>Tuesday</option><option>Wednesday</option><option>Thursday</option><option>Friday</option><option>Saturday</option>".html_safe, multiple: true %>
+  <%#= submit_tag "This works!"  %>
+<%# end %>
+
+VIEW MEETUPS BY DAY!!!
+<%= form_tag("/meetups/day_select", method: "post") do %>
+  <%= select_tag "day", options_for_select([ "Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday" ], "MasterCard") %>
+  <%= submit_tag "This works!"  %>
+<% end %>

@@ -5,6 +5,7 @@ class GroupsController < ApplicationController
 
   def show
     @group = Group.find(params[:id])
+    #render json: @group # this uses the serializer and makes json out of the group show
   end
 
   def new

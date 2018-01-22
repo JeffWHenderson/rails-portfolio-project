@@ -8,6 +8,8 @@ class MeetupsController < ApplicationController
   def index
     @group = Group.find(params[:group_id])
     @meetups = @group.meetups
+
+    render json: @meetups
   end
 
   def show

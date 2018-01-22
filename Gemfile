@@ -30,6 +30,7 @@ gem 'jbuilder', '~> 2.5'
 # Use ActiveModel has_secure_password
 gem 'bcrypt', '~> 3.1.7'
 gem 'active_model_serializers', '~> 0.10.0'
+gem 'jquery-rails'
 
  #devise for authentication and authorization. use omniathable for github singin
  #gem 'devise'

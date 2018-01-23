@@ -1,7 +1,8 @@
 $(() => {
   $('#get-day').on('click', (e) =>{
       e.preventDefault()
-      console.log("hijacked")
+      console.log(e)
+      //fetch()
 })// end document ready
 /////////////////////////////////// Show meetups Index start ///////////////////////////
 

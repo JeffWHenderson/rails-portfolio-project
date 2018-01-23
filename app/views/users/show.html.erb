@@ -13,7 +13,7 @@
 <br><br><br>
 
 VIEW MEETUPS BY DAY!!!
-<%= form_tag("/meetups/day_select", method: "post") do %>
-  <%= select_tag "day", options_for_select([ "Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday" ], "Friday") %>
-  <%= submit_tag "Find meetups by day", :id=> "get-day"  %>
+<%= form_tag("/meetups/day_select", method: "post", :id => "get-day") do %>
+  <%= select_tag "day", options_for_select([ "Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday" ], "Sunday") %>
+  <%= submit_tag "Find meetups by day" %>
 <% end %>

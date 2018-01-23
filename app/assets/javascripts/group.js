@@ -1,15 +1,18 @@
+
+
 $(() => {
   bindClickHandlers()
 })// end document ready
-
+/////////////////////////////////// Show meetups Index start ///////////////////////////
 const bindClickHandlers = () => {
-    $('.show-meetups').on('click', (e) =>{
+    $('#show-meetups').on('click', (e) =>{
         e.preventDefault()
         // console.log(this)
         let id = $(this).attr('data-id')
         fetch(`/groups/1/meetups`)
         .then(res => res.json())
         .then(meetups => {
+          $(".show-meetups").html("")
           //$('.show-meetups').append(meetups)
           meetups.forEach((meetup) => {
             let newMeetup = new Meetup(meetup)
@@ -20,7 +23,6 @@ const bindClickHandlers = () => {
         })
     }) // end of click handler
 }
-
   // counstructor
 function Meetup(meetup) {
   this.location = meetup.location
@@ -38,3 +40,4 @@ let formatIndex = function(meetup) {
   `
   return postHTML
 }
+/////////////////////////////////// Show meetups Index end ///////////////////////////

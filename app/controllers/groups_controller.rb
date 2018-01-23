@@ -1,6 +1,10 @@
 class GroupsController < ApplicationController
   def index
     @groups = Group.all
+    #respond_to do |f|                  #This is just an example where it can recieve json or html
+      # f.html
+      # f.json {render json: @groups}
+    # end
   end
 
   def show

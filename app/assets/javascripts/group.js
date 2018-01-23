@@ -1,19 +1,25 @@
-$(document).ready(function() {
-
-
-  $('.show-meetups').on('click', (e) =>{
-    e.preventDefault()
-    let id = $(this).attr('data-id')
-    fetch(`/groups/1/meetups`)
-    .then(res => res.json())
-    .then(meetups => {
-      //$('.show-meetups').append(meetups)
-      meetups.forEach((meetup) => {
-        let newMeeup = new Meetup(meetup)
-      })
-    })
-  }) // end of click handler
+$(() => {
+  bindClickHandlers()
 })// end document ready
+
+const bindClickHandlers = () => {
+    $('.show-meetups').on('click', (e) =>{
+        e.preventDefault()
+        // console.log(this)
+        let id = $(this).attr('data-id')
+        fetch(`/groups/1/meetups`)
+        .then(res => res.json())
+        .then(meetups => {
+          //$('.show-meetups').append(meetups)
+          meetups.forEach((meetup) => {
+            let newMeetup = new Meetup(meetup)
+            let postHTML = formatIndex(newMeetup)
+            //let postHTML = newMeetup.formatIndex // this is taking the html template from the prototype
+            $(".show-meetups").append(postHTML)
+          })
+        })
+    }) // end of click handler
+}
 
   // counstructor
 function Meetup(meetup) {
@@ -22,6 +28,13 @@ function Meetup(meetup) {
   this.name = meetup.name
   this.day = meetup.day
   this.time = meetup.time
-  this.group_id = meetup.group_id
-  console.log(this)
+  this.groupId = meetup.group_id
+}
+
+let formatIndex = function(meetup) {
+  let postHTML = `
+    <a href="/groups/${meetup.groupId}/meetups/${meetup.id}" ><h3> ${meetup.name}</h3></a>
+    <p>${meetup.location} @ ${meetup.time}</p>
+  `
+  return postHTML
 }

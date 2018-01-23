@@ -1,15 +1,14 @@
-
-
 $(() => {
   bindClickHandlers()
 })// end document ready
 /////////////////////////////////// Show meetups Index start ///////////////////////////
+
 const bindClickHandlers = () => {
     $('#show-meetups').on('click', (e) =>{
         e.preventDefault()
-        // console.log(this)
-        let id = $(this).attr('data-id')
-        fetch(`/groups/1/meetups`)
+        let href = e.target.href
+
+        fetch(`${href}`)
         .then(res => res.json())
         .then(meetups => {
           $(".show-meetups").html("")
@@ -22,7 +21,7 @@ const bindClickHandlers = () => {
           })
         })
     }) // end of click handler
-}
+}// end bindClickHandlers
   // counstructor
 function Meetup(meetup) {
   this.location = meetup.location

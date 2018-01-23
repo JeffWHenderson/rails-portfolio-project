@@ -2,11 +2,11 @@
  <br>
 - [ ] Include a show resource rendered using jQuery and an Active Model Serialization JSON backend.
 <br>
-- [ ] Include an index resource rendered using jQuery and an Active Model Serialization JSON backend.
+- [-] Include an index resource rendered using jQuery and an Active Model Serialization JSON backend.
 <br>
-- [ ] Include at least one has_many relationship in information rendered via JSON and appended to the DOM.
+- [-] Include at least one has_many relationship in information rendered via JSON and appended to the DOM.
 <br>
-- [ ] Use your Rails API and a form to create a resource and render the response without a page refresh.
+- [ ] Use your Rails API and a form to CREATE a resource and render the response without a page refresh.
 <br>
 - [ ] Translate JSON responses into js model objects.
 <br>
@@ -20,7 +20,7 @@
     <p><%= link_to "Create a Meetup for this Group", new_group_meetup_path(@group)%></p>
   </div>
   <div class="show-meetups right">
-      <a id="show-meetups" href="/groups/<%= @group.id %>/meetups" data-id="<%= @group.id %>">SHOW ALL MEETUPS!</a>
+      <a id="show-meetups" href="/groups/<%= @group.id %>/meetups">SHOW ALL MEETUPS!</a>
   </div>
 
 </div>

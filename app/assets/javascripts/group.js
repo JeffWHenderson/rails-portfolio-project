@@ -8,7 +8,20 @@ $(document).ready(function() {
     .then(res => res.json())
     .then(meetups => {
       //$('.show-meetups').append(meetups)
-      console.log(meetups)
+      meetups.forEach((meetup) => {
+        let newMeeup = new Meetup(meetup)
+      })
     })
-  })
-})
+  }) // end of click handler
+})// end document ready
+
+  // counstructor
+function Meetup(meetup) {
+  this.location = meetup.location
+  this.id = meetup.id
+  this.name = meetup.name
+  this.day = meetup.day
+  this.time = meetup.time
+  this.group_id = meetup.group_id
+  console.log(this)
+}

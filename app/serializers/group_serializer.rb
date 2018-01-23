@@ -1,3 +1,5 @@
 class GroupSerializer < ActiveModel::Serializer
-  attributes :id, :description
+  attributes :id, :description, :name
+
+  has_many :meetups
 end

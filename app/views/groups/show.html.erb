@@ -20,11 +20,12 @@
     <p><%= link_to "Create a Meetup for this Group", new_group_meetup_path(@group)%></p>
   </div>
   <div class="show-meetups right">
-    <p><%= link_to "See all the Meetups for this group", group_meetups_path(@group) %></p>
+      <a href="/groups/<%= @group.id %>/meetups" data-id="<%= @group.id %>">LINK</a>
   </div>
+
 </div>
 
-<div class=""><br><br>
+<div class="comments"><br><br>
   <h3>Comments</h3>
   <%  UserGroup.group_comments("#{@group.id}").each do |association| %>
       <%= User.chop_email(association.user_id) %> says  <%= association.comment %><br>

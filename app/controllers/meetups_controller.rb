@@ -1,8 +1,6 @@
 class MeetupsController < ApplicationController
   def day_select
-    #raise params.inspect
-    @display_day = params[:day]
-    @day = Meetup.day_of_the_week(@display_day)
+    render json: Meetup.day_of_the_week(params[:day])
   end
 
   def index

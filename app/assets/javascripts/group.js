@@ -81,18 +81,17 @@ function displayTags(tags) {
   return tagsHTML
 }
 /////////////////////////////////////// next.. //////////////////////////////////////
-$(() => {
-    $('#comment-form').submit((e) =>{
-        e.preventDefault()
-        var values = $(e.target)
-        console.log(values)
-        // var posting = $.post('/user_group/comment', values);
-        // console.log(posting)
-        // posting.done(function(data) {
-        //   var post = data;
-        //   console.log(data)
-                  // $("#postTitle").text(post["title"]);
-                  // $("#postBody").text(post["description"]);
-        // });
-    }) // end
-}) // end document ready
+$(function () {
+    $('form').submit(function(event) {
+      event.preventDefault();
+      var values = $(this).serialize();
+      var posting = $.post('/user_group/comment', values);
+      //
+      posting.done(function(data) {
+        let comment = "You said "
+        comment += data["comment"]
+
+        $('.comments').append(comment)
+      });
+    });
+  });

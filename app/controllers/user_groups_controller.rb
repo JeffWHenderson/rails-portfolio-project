@@ -1,7 +1,7 @@
 class UserGroupsController < ApplicationController
   def comment
-    @post = UserGroup.new(user_group_params)
-    render json: @post, status: 201
+    @comment = UserGroup.create(user_group_params)
+    render json: @comment, status: 201
 
     # p = user_group_params
     # ug = UserGroup.new(:comment => p["comment"], :user_id => p['user_id'], :group_id => p["group_id"])

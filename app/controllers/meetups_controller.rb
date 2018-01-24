@@ -13,8 +13,9 @@ class MeetupsController < ApplicationController
   end
 
   def show
-    @group = Group.find(params[:group_id])
+    # @group = Group.find(params[:group_id])
     @meetup = Meetup.find(params[:id])
+    render json: @meetup
   end
 
   def new

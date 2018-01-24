@@ -1,6 +1,10 @@
-$(() => {
-  bindClickHandlers()
-})// end document ready
+// $(() => {
+//   bindClickHandlers()
+// })// end document ready
+
+$(document).ready(function(){
+      bindClickHandlers()
+});
 /////////////////////////////////// Show meetups Index start ///////////////////////////
 
 const bindClickHandlers = () => {
@@ -11,11 +15,10 @@ const bindClickHandlers = () => {
         .then(res => res.json())
         .then(meetups => {
           $(".show-meetups").html("")
-          //$('.show-meetups').append(meetups)
+
           meetups.forEach((meetup) => {
             let newMeetup = new Meetup(meetup)
             let postHTML = formatIndex(newMeetup)
-            //let postHTML = newMeetup.formatIndex // this is taking the html template from the prototype
             $(".show-meetups").append(postHTML)
           })
         })
@@ -30,27 +33,52 @@ function Meetup(meetup) {
   this.time = meetup.time
   this.tags = meetup.tags
   this.group = meetup.group
-  console.log(this)
 }
 
 let formatIndex = function(meetup) {
   let postHTML = `
-    <a href="/groups/${meetup.group.id}/meetups/${meetup.id}" class="show-link" ><h3> ${meetup.name}</h3></a>
+    <a class="gibberish" href="/groups/${meetup.group.id}/meetups/${meetup.id}" class="show-link"> ${meetup.name}</a>
     <p>${meetup.location} @ ${meetup.time}</p>
   `
   return postHTML
 }
 /////////////////////////////////// Show meetups Index end ///////////////////////////
-$(() => { // document ready
-
-  $('.show-link').on('click', function(e){
-    e.preventDefault()
-    console.log('hijacked')
-    // let id = $(this).attr("data-id")
-    // fetch(`/posts/${id}.json`)
-    // .then(res => res.json())
-    // .then(post => => {
-
+/////////////////////////////////// Meetup Show Page begin ///////////////////////////
+$(() => {
+  $('.show-meetups').on('click', `.gibberish`, function(e) {
+//    console.log($(this).attr("class"))
+      e.preventDefault()
+      let href = $(this).attr("href")
+      fetch(href)
+      .then((res) => res.json())
+      .then((meetup) => {
+        $(".show-meetups").html("")
+        let newMeetup = new Meetup(meetup)
+        let postHTML = formatFullMeetupContent(newMeetup)
+        $(".show-meetups").append(postHTML)
+        console.log(meetup)
+      })
     })
+  }) // end
+// }) // end document ready
 
-})
+let formatFullMeetupContent = function(meetup) {
+  let postHTML = `
+    <h2> ${meetup.name}</h2>
+    <p>${meetup.day} ${meetup.time}</p>
+    <p>@ ${meetup.location} </p>
+    ${displayTags(meetup.tags)}
+    <button>next</button>
+  `
+  return postHTML
+}
+
+function displayTags(tags) {
+  let tagsHTML = "<ul>"
+  tags.forEach((tag) => {
+    tagsHTML += `<li>${tag.name}</li> `
+  })
+  tagsHTML += `</ul>`
+  return tagsHTML
+}
+/////////////////////////////////////// next.. //////////////////////////////////////

@@ -20,7 +20,7 @@
     <p><%= link_to "Create a Meetup for this Group", new_group_meetup_path(@group)%></p>
   </div>
   <div class="show-meetups right">
-      <a id="show-meetups" href="/groups/<%= @group.id %>/meetups">SHOW ALL MEETUPS!</a>
+      <a id="show-meetups" href="/groups/<%= params['id'] %>/meetups">SHOW ALL MEETUPS!</a>
   </div>
 
 </div>

@@ -24,7 +24,7 @@
     //         $(".show-meetups").append(postHTML)
     //       })
     //     })
-    }) // end of click handler
+    // }) // end of click handler
 // }// end bindClickHandlers
 
 

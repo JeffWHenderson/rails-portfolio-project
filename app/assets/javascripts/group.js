@@ -5,7 +5,7 @@
 $(document).ready(function(){
       bindClickHandlers()
 });
-/////////////////////////////////// Show meetups Index start ///////////////////////////
+/////////////////////////////////// Meetups Index start ///////////////////////////
 
 const bindClickHandlers = () => {
     $('#show-meetups').on('click', (e) =>{
@@ -24,7 +24,8 @@ const bindClickHandlers = () => {
         })
     }) // end of click handler
 }// end bindClickHandlers
-  // counstructor
+
+// counstructor
 function Meetup(meetup) {
   this.location = meetup.location
   this.id = meetup.id
@@ -42,11 +43,10 @@ let formatIndex = function(meetup) {
   `
   return postHTML
 }
-/////////////////////////////////// Show meetups Index end ///////////////////////////
-/////////////////////////////////// Meetup Show Page begin ///////////////////////////
+/////////////////////////////////// Meetups Index end ///////////////////////////
+/////////////////////////////////// Meetup Show begin ///////////////////////////
 $(() => {
   $('.show-meetups').on('click', `.gibberish`, function(e) {
-//    console.log($(this).attr("class"))
       e.preventDefault()
       let href = $(this).attr("href")
       fetch(href)
@@ -80,7 +80,7 @@ function displayTags(tags) {
   tagsHTML += `</ul>`
   return tagsHTML
 }
-/////////////////////////////////////// next.. //////////////////////////////////////
+/////////////////////////////////////// comment submit function //////////////////////////////////////
 $(function () {
     $('form').submit(function(event) {
       event.preventDefault();

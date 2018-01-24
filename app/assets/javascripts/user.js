@@ -1,9 +1,12 @@
-$(() => {
-  $('#get-day').on('click', (e) =>{
-      e.preventDefault()
-      console.log(e)
-      //fetch()
-})// end document ready
+//TODO render meetups controller as json endpoint. update user#show page to dynamically add day of the week meetups. 3. javascript goes here
+
+
+// $(() => {
+//   $('#get-day').on('click', (e) =>{
+//       e.preventDefault()
+//       console.log(e)
+//       //fetch()
+// })// end document ready
 /////////////////////////////////// Show meetups Index start ///////////////////////////
 
 // const bindClickHandlers = () => {

@@ -68,7 +68,6 @@ let formatFullMeetupContent = function(meetup) {
     <p>${meetup.day} ${meetup.time}</p>
     <p>@ ${meetup.location} </p>
     ${displayTags(meetup.tags)}
-    <button>next</button>
   `
   return postHTML
 }
@@ -82,3 +81,18 @@ function displayTags(tags) {
   return tagsHTML
 }
 /////////////////////////////////////// next.. //////////////////////////////////////
+$(() => {
+    $('#comment-form').submit((e) =>{
+        e.preventDefault()
+        var values = $(e.target)
+        console.log(values)
+        // var posting = $.post('/user_group/comment', values);
+        // console.log(posting)
+        // posting.done(function(data) {
+        //   var post = data;
+        //   console.log(data)
+                  // $("#postTitle").text(post["title"]);
+                  // $("#postBody").text(post["description"]);
+        // });
+    }) // end
+}) // end document ready

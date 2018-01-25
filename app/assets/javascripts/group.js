@@ -53,23 +53,31 @@ $(() => {
       .then((res) => res.json())
       .then((meetup) => {
         $(".show-meetups").html("")
-        let newMeetup = new Meetup(meetup)
-        let postHTML = formatFullMeetupContent(newMeetup)
-        $(".show-meetups").append(postHTML)
-        console.log(meetup)
+        let thisMeetup = new Meetup(meetup)
+        $(".show-meetups").append(thisMeetup.formatShow())
       })
     })
   }) // end
 // }) // end document ready
 
-let formatFullMeetupContent = function(meetup) {
-  let postHTML = `
-    <h2> ${meetup.name}</h2>
-    <p>${meetup.day} ${meetup.time}</p>
-    <p>@ ${meetup.location} </p>
-    ${displayTags(meetup.tags)}
+// let formatFullMeetupContent = function(meetup) {
+//   let postHTML = `
+//     <h2> ${meetup.name}</h2>
+//     <p>${meetup.day} ${meetup.time}</p>
+//     <p>@ ${meetup.location} </p>
+//     ${displayTags(meetup.tags)}
+//   `
+//   return postHTML
+// }
+
+Meetup.prototype.formatShow = function() {
+  let meetupHtml = `
+  <h2> ${this.name}</h2>
+  <p>${this.day} ${this.time}</p>
+  <p>@ ${this.location} </p>
+  ${displayTags(this.tags)}
   `
-  return postHTML
+  return meetupHtml
 }
 
 function displayTags(tags) {

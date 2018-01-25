@@ -1,13 +1,13 @@
-$(document).ready(function(){
+$(document).ready(function(e){
       bindClickHandlers()
 });
 /////////////////////////////////// Meetups Index start ///////////////////////////
 
-const bindClickHandlers = () => {
-    $('#show-meetups').on('click', (e) =>{
-        e.preventDefault()
+function bindClickHandlers() {
+    $('a#show-meetups').on('click', function(e) {
+        e.preventDefault();
         let href = e.target.href
-        fetch(`${href}`)
+        fetch(href)
         .then(res => res.json())
         .then(meetups => {
           $(".show-meetups").html("")

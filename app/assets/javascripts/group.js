@@ -1,7 +1,3 @@
-// $(() => {
-//   bindClickHandlers()
-// })// end document ready
-
 $(document).ready(function(){
       bindClickHandlers()
 });
@@ -60,16 +56,6 @@ $(() => {
   }) // end
 // }) // end document ready
 
-// let formatFullMeetupContent = function(meetup) {
-//   let postHTML = `
-//     <h2> ${meetup.name}</h2>
-//     <p>${meetup.day} ${meetup.time}</p>
-//     <p>@ ${meetup.location} </p>
-//     ${displayTags(meetup.tags)}
-//   `
-//   return postHTML
-// }
-
 Meetup.prototype.formatShow = function() {
   let meetupHtml = `
   <h2> ${this.name}</h2>
@@ -92,14 +78,14 @@ function displayTags(tags) {
 $(function () {
     $('form').submit(function(event) {
       event.preventDefault();
-      var values = $(this).serialize();
-      var posting = $.post('/user_group/comment', values);
-      //
+      var values = $(this).serialize()
+      var posting = $.post('/user_group/comment', values)
+
       posting.done(function(data) {
         let comment = "You said "
         comment += data["comment"]
 
         $('.comments').append(comment)
-      });
-    });
-  });
+      })
+    })
+  })

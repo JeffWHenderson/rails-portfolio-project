@@ -2,12 +2,9 @@ $(document).ready(function(e){
       bindClickHandlers()
 });
 /////////////////////////////////// Meetups Index start ///////////////////////////
-    // turbolinks -
 function bindClickHandlers() {
     $('#show-meetups').on('click', function(e) {
         e.preventDefault();
-          // stop propagation???
-        //console.log(e)
         let href = e.target.href
         fetch(href)
         .then(res => res.json())

@@ -1,6 +1,13 @@
 $(document).ready(function(e){
       bindClickHandlers()
+      clearCommentBox()
 });
+
+function clearCommentBox(){
+  $('#comment').focus(function() {
+      $(this).val('');
+  });
+}
 /////////////////////////////////// Meetups Index start ///////////////////////////
 function bindClickHandlers() {
     $('#show-meetups').on('click', function(e) {
@@ -84,6 +91,7 @@ $(function () {
         let comment = "You said "
         comment += data["comment"]
 
+        $('#comment').attr('value', '')
         $('.comments').append(comment + '<br />')
       })
     })

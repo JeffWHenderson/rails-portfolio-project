@@ -5,6 +5,8 @@ class MeetupsController < ApplicationController
       #render json: Meetup.day_of_the_week(params[:day])
   end
 
+
+ #///////////////////////////////////
   def index
     @group = Group.find(params[:group_id])
     @meetups = @group.meetups
@@ -17,6 +19,13 @@ class MeetupsController < ApplicationController
     @meetup = Meetup.find(params[:id])
     render json: @meetup
   end
+
+  #/////////////////////////////////////////
+
+
+
+
+
 
   def new
     @group = Group.find(params[:group_id])

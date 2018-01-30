@@ -2,10 +2,12 @@ $(document).ready(function(e){
       bindClickHandlers()
 });
 /////////////////////////////////// Meetups Index start ///////////////////////////
-
+    // turbolinks -
 function bindClickHandlers() {
-    $('a#show-meetups').on('click', function(e) {
+    $('#show-meetups').on('click', function(e) {
         e.preventDefault();
+          // stop propagation???
+        //console.log(e)
         let href = e.target.href
         fetch(href)
         .then(res => res.json())
@@ -75,7 +77,7 @@ function displayTags(tags) {
   return tagsHTML
 }
 /////////////////////////////////////// comment submit function //////////////////////////////////////
-$(function () {
+$(function () {                       // use a more specific identifier. this breaks my choose-day form
     $('form').submit(function(event) {
       event.preventDefault();
       var values = $(this).serialize()

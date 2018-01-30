@@ -2,11 +2,8 @@ class MeetupsController < ApplicationController
   def day_select
       @display_day = params[:day]
       @day = Meetup.day_of_the_week(@display_day)
-      #render json: Meetup.day_of_the_week(params[:day])
   end
 
-
- #///////////////////////////////////
   def index
     @group = Group.find(params[:group_id])
     @meetups = @group.meetups
@@ -15,22 +12,13 @@ class MeetupsController < ApplicationController
   end
 
   def show
-    # @group = Group.find(params[:group_id])
     @meetup = Meetup.find(params[:id])
     render json: @meetup
   end
 
-  #/////////////////////////////////////////
-
-
-
-
-
-
   def new
     @group = Group.find(params[:group_id])
-    @meetup = Meetup.new#find(params[:id])
-    # @meetup.tags.build
+    @meetup = Meetup.new
   end
 
   def create
@@ -45,7 +33,7 @@ class MeetupsController < ApplicationController
     end
   end
 
-  #needs authorizations
+
   def edit
     @group = Group.find(params[:group_id])
     @meetup = @group.meetups.find(params[:id])
@@ -59,13 +47,13 @@ class MeetupsController < ApplicationController
       redirect_to group_meetup_path(@group, @meetup)
     else
       flash[:notice] = "something is wrong yo"
-      render "edit" #edit_group_meetup_path
+      render "edit"
     end
 
   end
 
   def destroy
-    @meetup = Meetup.find(params[:id]) #current_user.groups.find(params[:id])
+    @meetup = Meetup.find(params[:id]) 
     @meetup.destroy
     flash[:notice] = "Meetup deleted"
     redirect_to root_path

@@ -1,16 +1,10 @@
 class GroupsController < ApplicationController
   def index
     @groups = Group.all
-
-    #respond_to do |f|            
-      # f.html
-      # f.json {render json: @groups}
-    # end
   end
 
   def show
     @group = Group.find(params[:id])
-    #render json: @group # this uses the serializer and makes json out of the group show
   end
 
   def new

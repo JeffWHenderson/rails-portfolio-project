@@ -7,7 +7,7 @@ class SessionsController < ApplicationController
     end
   end
 
-  def create #use strong params here ################################################
+  def create 
     @user = User.find_by(email: params[:user][:email])
     if @user && @user.authenticate(params[:user][:password])
       @user.save

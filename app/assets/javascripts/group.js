@@ -74,8 +74,8 @@ function displayTags(tags) {
   return tagsHTML
 }
 /////////////////////////////////////// comment submit function //////////////////////////////////////
-$(function () {                       // use a more specific identifier. this breaks my choose-day form
-    $('form').submit(function(event) {
+$(function () {
+    $('#comment-form').submit(function(event) {
       event.preventDefault();
       var values = $(this).serialize()
       var posting = $.post('/user_group/comment', values)
@@ -84,7 +84,7 @@ $(function () {                       // use a more specific identifier. this br
         let comment = "You said "
         comment += data["comment"]
 
-        $('.comments').append(comment)
+        $('.comments').append(comment + '<br />')
       })
     })
   })

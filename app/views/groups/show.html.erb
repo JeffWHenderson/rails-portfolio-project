@@ -18,10 +18,18 @@
 
 <div class="comment-container">
   <h3>leave a comment here</h3>
-  <%= form_tag "/user_group/comment", :id => 'comment-form', :method => :post do %>
-    <%= text_field_tag "comment" %>
-    <%= hidden_field_tag :group_id, @group.id %>
-    <%= hidden_field_tag :user_id, user_id %>
-    <%= submit_tag "comment", :id => "submit-comment" %>
-  <% end %>
+    <form id="comment-form" action="/user_group/comment" accept-charset="UTF-8" method="post"><input name="utf8" type="hidden" value="✓"><input type="hidden" name="authenticity_token" value="Ri8Y6cuZ4FuEu/Fqn7WdLzg8DEHjMjF1FL8l1oC1pFH9av/86CKT9msoLWQshv2cjD65QNgcuR7UAgsPpf1x3Q==">
+        <input type="text" name="comment" id="comment" value="">
+        <input type="hidden" name="group_id" id="group_id" value="1">
+        <input type="hidden" name="user_id" id="user_id" value="1">
+        <input type="submit" name="commit" value="comment" id="submit-comment">
+    </form>
+
+<%#  this is my original rails form %>
+        <%#= form_tag "/user_group/comment", :id => 'comment-form', :method => :post do %>
+          <%#= text_field_tag "comment" %>
+          <%#= hidden_field_tag :group_id, @group.id %>
+          <%#= hidden_field_tag :user_id, user_id %>
+          <%#= submit_tag "comment", :id => "submit-comment"%>
+        <%# end %>
 </div>

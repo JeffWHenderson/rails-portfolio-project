@@ -40,7 +40,7 @@ function Meetup(meetup) {
 
 let formatIndex = function(meetup) {
   let postHTML = `
-    <a class="gibberish" href="/groups/${meetup.group.id}/meetups/${meetup.id}" class="show-link"> ${meetup.name}</a>
+    <a class="link-show" href="/groups/${meetup.group.id}/meetups/${meetup.id}" class="show-link"> ${meetup.name}</a>
     <p>${meetup.location} @ ${meetup.time}</p>
   `
   return postHTML
@@ -48,7 +48,7 @@ let formatIndex = function(meetup) {
 /////////////////////////////////// Meetups Index end ///////////////////////////
 /////////////////////////////////// Meetup Show begin ///////////////////////////
 $(() => {
-  $('.show-meetups').on('click', `.gibberish`, function(e) {
+  $('.show-meetups').on('click', `.link-show`, function(e) {
       e.preventDefault()
       let href = $(this).attr("href")
       fetch(href)

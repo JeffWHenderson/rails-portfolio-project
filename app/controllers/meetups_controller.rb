@@ -53,7 +53,7 @@ class MeetupsController < ApplicationController
   end
 
   def destroy
-    @meetup = Meetup.find(params[:id]) 
+    @meetup = Meetup.find(params[:id])
     @meetup.destroy
     flash[:notice] = "Meetup deleted"
     redirect_to root_path
@@ -61,6 +61,12 @@ class MeetupsController < ApplicationController
 
   def all
     @meetups = Meetup.all
+  end
+
+  def after_3
+    @meetups = Meetup.after_3
+
+    render json: @meetups
   end
 
   private

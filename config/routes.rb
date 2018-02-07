@@ -17,6 +17,7 @@ Rails.application.routes.draw do
   post 'meetups/day_select', to: "meetups#day_select"
   post 'user_group/comment', to: "user_groups#comment"
 
+  get '/after3', to: "meetups#after_3"
   resources :groups do
     resources :meetups
   end

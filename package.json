@@ -1,5 +1,7 @@
 {
   "name": "rails-portfolio-project",
   "private": true,
-  "dependencies": {}
+  "dependencies": {
+    "redux-thunk": "^2.2.0"
+  }
 }

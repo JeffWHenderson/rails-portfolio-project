@@ -1,3 +1,5 @@
+// change let to const
+
 $(document).ready(function(e){
       bindClickHandlers()
       clearCommentBox()
@@ -17,12 +19,14 @@ function bindClickHandlers() {
         .then(res => res.json())
         .then(meetups => {
           $(".show-meetups").html("")
-
           meetups.forEach((meetup) => {
             let newMeetup = new Meetup(meetup)
             let postHTML = formatIndex(newMeetup)
             $(".show-meetups").append(postHTML)
           })
+                        //this is from a live coding assignment ////
+                        let button = `<button class="after-3">after 3?</button><br />`
+                        $(".show-meetups").append(button)
         })
     }) // end of click handler
 }// end bindClickHandlers
@@ -84,11 +88,11 @@ function displayTags(tags) {
 $(function () {
     $('#comment-form').submit(function(event) {
       event.preventDefault();
-      var values = $(this).serialize()
-      var posting = $.post('/user_group/comment', values)
+      const values = $(this).serialize()
+      const posting = $.post('/user_group/comment', values)
 
       posting.done(function(data) {
-        let comment = "You said "
+        const comment = "You said "
         comment += data["comment"]
 
         $('#comment').attr('value', '')
@@ -96,3 +100,29 @@ $(function () {
       })
     })
   })
+
+////////////////// live coding for review /////////////////
+$(function () {
+    $(document).on('click', '.after-3', function(event) {
+      event.preventDefault();
+      console.log(this)
+
+      fetch("/after3")
+      .then(res => res.json())
+      .then(data => {
+        $('.show-meetups').html("")
+        data.forEach((meetup) => {
+
+          const x = new Meetup(meetup)
+          y = formatAfter3(x)
+          console.log(y)
+          $(".show-meetups").append(y)
+        })
+      })
+    })
+  })
+
+  const formatAfter3 = (meetup) => {
+    return `<p>${meetup.name}</p>
+    <p>${meetup.day}</p>`
+  }

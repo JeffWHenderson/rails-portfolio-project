@@ -8,8 +8,6 @@ class Meetup < ApplicationRecord
   scope :day_of_the_week, ->(day) { where(day: day) }
 
   def tags_attributes=(tags_hashes)
-    #raise tags_hashes.inspect
-    #{"0"=>{"name"=>"Spooky"}}
     tags_hashes.each do |i, tags_attributes|
       if tags_attributes[:name].present?
         tag = Tag.find_or_create_by(name: tags_attributes[:name])
@@ -18,5 +16,9 @@ class Meetup < ApplicationRecord
         end
       end
     end
+  end
+
+  def self.after_3
+    Meetup.where(:time => "4:15")
   end
 end

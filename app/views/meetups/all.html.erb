@@ -6,6 +6,6 @@
   <div class="content center">
     <h3>group: <%= link_to "#{m.group.name}", group_path("#{m.group.id}") %></h3>
 
-  <p>event:  <%= link_to "#{m.name}", "/groups/#{m.group.id}/meetups/#{m.id}" %></p>
+  <p>event:  <%= link_to "#{m.name}", "/groups/#{m.group.id}/meetups/#{m.id}", :class=>"gibberish" %></p>
   </div>
 <% end %>
